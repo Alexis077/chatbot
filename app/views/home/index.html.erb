@@ -7,12 +7,16 @@
         </div>
         <div class="card-body">
           <div class="messages">
-            <div class="message">¡Hola! ¿Cómo estás? Soy tu asistente. ¿Qué operación deseas realizar hoy? (Escribe el número de la operación que desees realizar)</div>
-            <ol>
-              <li>Consulta de Depósito</li>
-              <li>Realizar solicitud de rollos de papel</li>
-              <li>Consulta de indicadores económicos</li>
-            </ol>
+            <div class="message">
+            ¡Hola! ¿Cómo estás? Soy tu asistente. ¿Qué operación deseas realizar hoy? (Escribe el número de la operación que desees realizar)
+              <ol>
+                <li>Consulta de Depósito</li>
+                <li>Realizar solicitud de rollos de papel</li>
+                <li>Consulta de indicadores económicos</li>
+              </ol>
+            </div>
+            <hr>
+            <%= render partial: "messages", assings: {messages: @messages} %>
           </div>
           <%= form_with url: intentions_path, method: :post do |form| %>
             <div class="row">

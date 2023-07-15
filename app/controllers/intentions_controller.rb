@@ -1,6 +1,7 @@
 class IntentionsController < ApplicationController
   def create
-    Intentions::Create.call(intentions_params)
+    result = Intentions::Create.call(intentions_params)
+    @messages = result.messages
     render "home/index"
   end
 
