@@ -69,6 +69,7 @@ end
 
 group :test do
   gem 'vcr'
+  gem 'webmock', '~> 3.11'
   gem 'database_cleaner-active_record'
 end
 
