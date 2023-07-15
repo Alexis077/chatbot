@@ -25,4 +25,14 @@ RSpec.describe ChatSession, type: :model do
       expect(chat_session.status).to eq("closed")
     end
   end
+
+  describe "associations" do
+    it "has many messages" do
+      chat_session = FactoryBot.create(:chat_session)
+      message1 = FactoryBot.create(:message, chat_session: chat_session)
+      message2 = FactoryBot.create(:message, chat_session: chat_session)
+
+      expect(chat_session.messages).to match_array([message1, message2])
+    end
+  end
 end
