@@ -1,4 +1,4 @@
-class Roles::Create
+class Intentions::Create
   include Interactor
   
   def call
