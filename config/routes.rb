@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  resource :intentions, only: %i[create]
 end
