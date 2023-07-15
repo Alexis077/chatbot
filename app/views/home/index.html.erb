@@ -16,7 +16,7 @@
               </ol>
             </div>
             <hr>
-            <%= render partial: "messages", assings: {messages: @messages} %>
+            <%= render partial: "home/messages", assings: {messages: @messages} %>
           </div>
           <%= form_with url: intentions_path, method: :post do |form| %>
             <div class="row">
