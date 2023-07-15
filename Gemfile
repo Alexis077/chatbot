@@ -54,6 +54,10 @@ gem "sassc-rails"
 # Add Dot Env rails
 gem 'dotenv-rails'
 
+#Add interectors
+gem "interactor", "~> 3.0"
+
+
 group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
   gem 'factory_bot_rails'
