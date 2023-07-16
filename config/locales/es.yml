@@ -37,4 +37,4 @@ es:
     economic_indicators_inquiry: Consulta de indicadores económicos
   intention:
     errors:
-      not_valid_option: Opción no valida intente nuevamente.
+      not_valid_option: Opción no válida intente nuevamente.
