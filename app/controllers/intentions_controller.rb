@@ -2,7 +2,7 @@ class IntentionsController < ApplicationController
   def create
     result = Intentions::Create.call(intentions_params: intentions_params, session: session)
     @messages = result.messages
-    render "home/index"
+    redirect_to root_path
   end
 
   private
