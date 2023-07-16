@@ -8,6 +8,8 @@ class Home::Index
   def call
     get_chat_session!
     context.messages = context.chat_session.messages
+  rescue
+    
   end
 
   private

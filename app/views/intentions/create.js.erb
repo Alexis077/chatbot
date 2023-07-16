@@ -1,0 +1,6 @@
+var messagesContainer = document.querySelector(".messages");
+var inputText = document.getElementById("input_text");
+inputText.value = "";
+messagesContainer.innerHTML("<%= escape_javascript(render partial: "home/messages", assings: {messages: @messages}) %>");
+messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
