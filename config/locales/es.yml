@@ -30,12 +30,31 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 es:
-  hello_message: ¡Hola! ¿Cómo estás? Soy tu asistente. ¿Qué operación deseas realizar hoy? (Escribe el número de la operación que desees realizar)
+  hello_message: ¡Hola! ¿Cómo estás? Soy tu asistente. ¿Qué operación deseas realizar hoy? (Escribe el número de la operación que desees realizar).
   hello_message_options: 
-    deposit_inquiry: Consulta de Depósito
-    request_paper_rolls: Realizar solicitud de rollos de papel
-    economic_indicators_inquiry: Consulta de indicadores económicos
+    deposit_inquiry: Consulta de Depósito.
+    request_paper_rolls: Realizar solicitud de rollos de papel.
+    economic_indicators_inquiry: Consulta de indicadores económicos.
   intention:
-    instructions: 'Ingrese su RUT y la fecha de depósito (separados por coma ejemplo: 00.000.000-K, 16/07/2023).'
+    deposit_inquiry:
+      instructions: 'Ingrese su RUT y la fecha de depósito (separados por punto y coma ejemplo: 00.000.000-K; 16/07/2023).'
+    request_paper_rolls:
+      success_message: Solicitud de rollos generada satisfactoriamente.
+      insufficient_balance: Saldo insuficiente.
+      instructions: |
+        ¡Bienvenido a nuestro servicio de "Realizar Solicitud de Rollos de Papel"!
+
+        Por favor, ingresa la siguiente información en la caja de texto, separando los valores de la siguiente manera:
+
+        Ejemplo de entrada:
+        RUT (RUT de Chile); Dirección de despacho; Cantidad de rollos a solicitar
+
+        Ejemplo:
+        12.345.678-9; Calle Ejemplo 123, Ciudad, País; 10
+      errors:
+        rut_must_exist: El RUT debe existir.
+        address_must_exist: La dirección debe existir.
+        invalid_quantity: La cantidad no es válida.
     errors:
       not_valid_option: Opción no válida intente nuevamente.
+

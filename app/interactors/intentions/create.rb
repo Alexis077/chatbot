@@ -21,7 +21,7 @@ class Intentions::Create
 
   def get_chat_session!
     context.session[:session_id] ||= ULID.generate
-    context.chat_session = ChatSession.find_or_create_by!(session_id: context.session[:session_id], status: :initialized)
+    context.chat_session = ChatSession.find_or_create_by!(session_id: context.session[:session_id])
   end
 
   def get_messages
@@ -29,7 +29,7 @@ class Intentions::Create
   end
   
   def process_request!
-    if context.chat_session.initialized?
+    if context.chat_session.initialized? || context.chat_session.finished?
       validate_chat_session_for_input_text! 
       return set_message!(context.errors.join("\n")) if context.errors.any?
 
@@ -42,8 +42,9 @@ class Intentions::Create
       intention = context.chat_session.messages.last.intention
       response = ::Intention::Main.new(intention,
                                        context.chat_session,context.intentions_params[:input_text]).execute!
+      return set_message!(response.errors.join("\n"), intention) if response.errors.any?
     
-      set_message!(response, intention)
+      set_message!(response.message, :without_intention)
     end
   end
 

@@ -1,6 +1,6 @@
 module Intention
   class Main
-    INTENTIONS = {"deposit_inquiry" => DepositInquiry::Create } 
+    INTENTIONS = {"deposit_inquiry" => DepositInquiry::Create, "request_paper_rolls" => RequestPaperRolls::Create } 
     
     def initialize(intention, chat_session, params = {})
       @intention = intention
@@ -14,7 +14,7 @@ module Intention
     end
 
     def execute!
-      INTENTIONS[@intention].new(@params).execute!
+      INTENTIONS[@intention].new(@params, @chat_session).execute!
     end
   end
 end

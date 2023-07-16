@@ -30,12 +30,30 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello_message: Hello! How are you? I am your assistant. What operation would you like to perform today? (Write the number of the operation you want to perform)
+  hello_message: Hello! How are you? I am your assistant. What operation would you like to perform today? (Write the number of the operation you want to perform).
   hello_message_options: 
-    deposit_inquiry: Deposit Inquiry
-    request_paper_rolls: Request Paper Rolls
-    economic_indicators_inquiry: Economic Indicators Inquiry
+    deposit_inquiry: Deposit Inquiry.
+    request_paper_rolls: Request Paper Rolls.
+    economic_indicators_inquiry: Economic Indicators Inquiry.
   intention:
-    instructions: 'Enter your ID number (RUT) and deposit date (separated by comma, example: 00.000.000-K, 07/16/2023).'
+    deposit_inquiry:
+      instructions: 'Enter your ID number (RUT) and deposit date (separated as follows, example: 00.000.000-K; 07/16/2023).'
+    request_paper_rolls:
+      success_message: Roll request generated successfully.
+      insufficient_balance: Insufficient balance.
+      instructions: |
+        Welcome to our "Paper Rolls Request" service!
+
+        Please enter the following information in the text box, separating the values as follows:
+
+        Input Example:
+        RUT (Chilean National ID); Shipping Address; Quantity of rolls to request
+
+        Example:
+        12.345.678-9; Example Street 123, City, Country; 10
+      errors:
+        rut_must_exist: The RUT must exist.
+        address_must_exist: The address must exist.
+        invalid_quantity: The quantity is not valid.
     errors:
       not_valid_option: Not valid option retry again.

@@ -4,7 +4,7 @@ module Intention
     include ActiveModel::Model
     
     def self.instruction_message
-      I18n.t('intention.instructions')
+      I18n.t('intention.deposit_inquiry.instructions')
     end
 
     def initialize(params)
