@@ -14,7 +14,7 @@ class Intentions::Create
 
   def get_chat_session!
     context.session[:session_id] ||= ULID.generate
-    context.chat_session = ChatSession.find_or_create_by!(session_id: context.session[:session_id], status: :open)
+    context.chat_session = ChatSession.find_or_create_by!(session_id: context.session[:session_id], status: :initialized)
   end
 
   def create_message!

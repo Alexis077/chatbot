@@ -14,15 +14,15 @@ RSpec.describe ChatSession, type: :model do
     end
 
     it "can create and save an open chat session" do
-      chat_session = FactoryBot.build(:chat_session, status: :open)
+      chat_session = FactoryBot.build(:chat_session, status: :initialized)
       expect(chat_session).to be_valid
       expect(chat_session.save).to be true
     end
 
     it "can change the status from open to closed" do
-      chat_session = FactoryBot.create(:chat_session, status: :open)
-      chat_session.update(status: :closed)
-      expect(chat_session.status).to eq("closed")
+      chat_session = FactoryBot.create(:chat_session, status: :initialized)
+      chat_session.update(status: :finished)
+      expect(chat_session.status).to eq("finished")
     end
   end
 
