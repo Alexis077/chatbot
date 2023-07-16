@@ -7,9 +7,9 @@ class Home::Index
   
   def call
     get_chat_session!
-    context.messages = context.chat_session.messages
+    context.messages = context.chat_session.messages.order(id: :asc)
   rescue
-    
+
   end
 
   private

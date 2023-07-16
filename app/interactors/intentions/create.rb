@@ -8,6 +8,7 @@ class Intentions::Create
   def call
     get_chat_session!
     create_message!
+    get_messages
   end
 
   private
@@ -19,6 +20,10 @@ class Intentions::Create
 
   def create_message!
     Message.create(chat_session: context.chat_session, text: context.intentions_params[:input_text])
+  end
+
+  def get_messages
+    context.messages = context.chat_session.messages.order(id: :asc)
   end
 end
   
