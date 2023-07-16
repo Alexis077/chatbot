@@ -57,6 +57,8 @@ gem 'dotenv-rails'
 #Add interectors
 gem "interactor", "~> 3.0"
 
+#Add ulid
+gem "ulid"
 
 group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
