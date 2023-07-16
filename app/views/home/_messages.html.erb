@@ -1,9 +1,9 @@
 <div class="message">
-¡Hola! ¿Cómo estás? Soy tu asistente. ¿Qué operación deseas realizar hoy? (Escribe el número de la operación que desees realizar)
+  <%= I18n.t('hello_message') %>
   <ol>
-    <li>Consulta de Depósito</li>
-    <li>Realizar solicitud de rollos de papel</li>
-    <li>Consulta de indicadores económicos</li>
+    <li><%= I18n.t('hello_message_options.deposit_inquiry') %></li>
+    <li><%= I18n.t('hello_message_options.request_paper_rolls') %></li>
+    <li><%= I18n.t('hello_message_options.economic_indicators_inquiry') %></li>
   </ol>
 </div>
  <hr>

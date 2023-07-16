@@ -29,12 +29,12 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello_message: Hello! How are you? I am your assistant. What operation would you like to perform today? (Write the number of the operation you want to perform)
+es:
+  hello_message: ¡Hola! ¿Cómo estás? Soy tu asistente. ¿Qué operación deseas realizar hoy? (Escribe el número de la operación que desees realizar)
   hello_message_options: 
-    deposit_inquiry: Deposit Inquiry
-    request_paper_rolls: Request Paper Rolls
-    economic_indicators_inquiry: Economic Indicators Inquiry
+    deposit_inquiry: Consulta de Depósito
+    request_paper_rolls: Realizar solicitud de rollos de papel
+    economic_indicators_inquiry: Consulta de indicadores económicos
   intention:
     errors:
-      not_valid_option: Not valid option retry again.
+      not_valid_option: Opción no valida intente nuevamente.
