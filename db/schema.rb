@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_16_194036) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_16_202521) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_16_194036) do
     t.index ["chat_session_id"], name: "index_messages_on_chat_session_id"
   end
 
+  create_table "purchase_requests", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.string "address"
+    t.integer "amount"
+    t.integer "quantity"
+    t.integer "total"
+    t.date "deposit_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_purchase_requests_on_customer_id"
+  end
+
   add_foreign_key "customers", "accounts"
   add_foreign_key "messages", "chat_sessions"
+  add_foreign_key "purchase_requests", "customers"
 end
