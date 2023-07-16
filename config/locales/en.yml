@@ -36,6 +36,6 @@ en:
     request_paper_rolls: Request Paper Rolls
     economic_indicators_inquiry: Economic Indicators Inquiry
   intention:
-    instructions: Enter your ID number (RUT) and the deposit date.
+    instructions: 'Enter your ID number (RUT) and deposit date (separated by comma, example: 00.000.000-K, 07/16/2023).'
     errors:
       not_valid_option: Not valid option retry again.

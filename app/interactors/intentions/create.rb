@@ -39,8 +39,11 @@ class Intentions::Create
       response = ::Intention::Main.new(intention, context.chat_session).instruction_message
       set_message!(response, intention)
     else
-      context.chat_session.messages.last.intention
-
+      intention = context.chat_session.messages.last.intention
+      response = ::Intention::Main.new(intention,
+                                       context.chat_session,context.intentions_params[:input_text]).execute!
+    
+      set_message!(response, intention)
     end
   end
 
