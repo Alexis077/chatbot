@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @messages = []
+    result = Home::Index.call(session: session)
+    @messages = result.messages
   end
 end

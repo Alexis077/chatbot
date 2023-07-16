@@ -2,7 +2,10 @@ class IntentionsController < ApplicationController
   def create
     result = Intentions::Create.call(intentions_params: intentions_params, session: session)
     @messages = result.messages
-    redirect_to root_path
+
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
   end
 
   private

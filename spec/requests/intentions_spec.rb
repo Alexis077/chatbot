@@ -4,11 +4,13 @@ RSpec.describe "Intentions", type: :request do
   describe "POST /create" do
     let(:input_text) { 'Prueba' }
     it "returns http success" do
-      post "/intentions"
-      expect(response).to have_http_status(302)
+      post "/intentions", params:{ input_text: input_text}, xhr: true
+      expect(response).to have_http_status(:success)
       expect(ChatSession.count).to eq(1)
       chat_session = ChatSession.find_by(session_id: request.session[:session_id])
-      expect(Message.where(chat_session: chat_session).count).to eq(1)
+      messages = Message.where(chat_session: chat_session)
+      expect(messages.count).to eq(1)
+      expect(messages.first.text).to eq(input_text)
     end
   end
 end

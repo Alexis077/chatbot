@@ -35,3 +35,13 @@
     </div>
   </div>
 </div>
+<script>
+  function scrollMessagesToBottom() {
+    var messagesContainer = document.querySelector(".messages");
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  window.onload = function() {
+    scrollMessagesToBottom();
+  };
+</script>
