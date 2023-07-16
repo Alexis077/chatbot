@@ -1,6 +1,6 @@
 class Intentions::Create
   include Interactor
-
+  
   before do 
     context.messages = []  
     context.errors = []
@@ -28,7 +28,9 @@ class Intentions::Create
   
   def process_request!
     validate_chat_session_for_input_text! if context.chat_session.initialized?
-    set_message!(context.errors.join("\n")) if context.errors.any?
+    return set_message!(context.errors.join("\n")) if context.errors.any?
+    response = ::Intention::Main.new(context.intentions_params[:input_text]).execute!
+    set_message!(response)
   end
 
   def validate_chat_session_for_input_text!
