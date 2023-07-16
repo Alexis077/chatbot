@@ -36,5 +36,6 @@ es:
     request_paper_rolls: Realizar solicitud de rollos de papel
     economic_indicators_inquiry: Consulta de indicadores económicos
   intention:
+    instructions: Ingrese su RUT y la fecha de depósito.
     errors:
       not_valid_option: Opción no válida intente nuevamente.

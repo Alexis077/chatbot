@@ -1,6 +1,8 @@
 class Intentions::Create
   include Interactor
-  
+
+  VALID_INTENTIONS = { "1" => "deposit_inquiry", "2" => "request_paper_rolls", "3" => "economic_indicators_inquiry"} 
+
   before do 
     context.messages = []  
     context.errors = []
@@ -27,10 +29,19 @@ class Intentions::Create
   end
   
   def process_request!
-    validate_chat_session_for_input_text! if context.chat_session.initialized?
-    return set_message!(context.errors.join("\n")) if context.errors.any?
-    response = ::Intention::Main.new(context.intentions_params[:input_text]).execute!
-    set_message!(response)
+    if context.chat_session.initialized?
+      validate_chat_session_for_input_text! 
+      return set_message!(context.errors.join("\n")) if context.errors.any?
+
+      intention = VALID_INTENTIONS[context.intentions_params[:input_text]]
+      return set_message!(I18n.t('intention.errors.not_valid_option')) if intention.nil?
+
+      response = ::Intention::Main.new(intention, context.chat_session).instruction_message
+      set_message!(response, intention)
+    else
+      context.chat_session.messages.last.intention
+
+    end
   end
 
   def validate_chat_session_for_input_text!
@@ -38,8 +49,8 @@ class Intentions::Create
     context.errors = validator.errors.messages.values unless validator.valid?
   end
 
-  def set_message!(text)
-    Message.create!(chat_session: context.chat_session, text: text)
+  def set_message!(text, intention = :without_intention)
+    Message.create!(chat_session: context.chat_session, text: text, intention: intention)
   end
 end
   

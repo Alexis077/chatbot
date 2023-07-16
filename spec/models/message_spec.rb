@@ -15,5 +15,12 @@ RSpec.describe Message, type: :model do
       message = FactoryBot.create(:message, chat_session: chat_session)
       expect(message.chat_session).to eq(chat_session)
     end
+
+    it "raises an exception with an invalid intention" do
+      chat_session = FactoryBot.create(:chat_session)
+      expect {
+        FactoryBot.create(:message, chat_session: chat_session, intention: :invalid_intention)
+      }.to raise_error(ArgumentError, "'invalid_intention' is not a valid intention")
+    end
   end
 end

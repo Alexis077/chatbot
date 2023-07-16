@@ -1,20 +1,19 @@
 module Intention
   class Main
-    INTENTIONS = {"1" => DepositInquiry::Create } 
+    INTENTIONS = {"deposit_inquiry" => DepositInquiry::Create } 
     
-    def initialize(intention)
+    def initialize(intention, chat_session)
       @intention = intention
+      @chat_session = chat_session
+    end
+    
+    def instruction_message
+      @chat_session.update!(status: :processing_request)
+      INTENTIONS[@intention].instruction_message
     end
 
     def execute!
-      select_intention
-      return I18n.t('intention.errors.not_valid_option') if @selected_intention.nil?
-    end
 
-    private
-
-    def select_intention
-      @selected_intention = INTENTIONS[@intention]
     end
   end
 end
