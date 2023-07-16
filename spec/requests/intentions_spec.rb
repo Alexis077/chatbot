@@ -10,7 +10,7 @@ RSpec.describe "Intentions", type: :request do
       chat_session = ChatSession.find_by(session_id: request.session[:session_id])
       messages = Message.where(chat_session: chat_session)
       expect(messages.count).to eq(1)
-      expect(messages.first.text).to eq(input_text)
+      expect(messages.first.text).to eq(I18n.t('intention.errors.not_valid_option'))
     end
   end
 end
