@@ -38,6 +38,11 @@ es:
   intention:
     deposit_inquiry:
       instructions: 'Ingrese su RUT y la fecha de depósito (separados por punto y coma ejemplo: 00.000.000-K; 16/07/2023).'
+      deposit_amount: 'La cantidad depositada para la fecha %{date} será de: $%{deposit_amount}.'
+      errors:
+        date_must_exist: La fecha debe existir
+        date_invalid_format: Fecha inválida, la fecha debe tener el formato dd/mm/yyyy.
+        not_found: Request not found. Please verify the entered information.
     request_paper_rolls:
       success_message: Solicitud de rollos generada satisfactoriamente.
       insufficient_balance: Saldo insuficiente.

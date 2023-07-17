@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Intentions
   module Validators
     class Initialized
@@ -8,7 +10,7 @@ module Intentions
       validates :input_text, allow_blank: false, presence: true
       validates :input_text, numericality: { only_integer: true, message: I18n.t('intention.errors.not_valid_option') }
 
-      def initialize(params={})
+      def initialize(params = {})
         @input_text = params[:input_text].strip
       end
     end
