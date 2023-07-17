@@ -3,7 +3,8 @@
 module Intentions
   class Create
     include Interactor
-
+    include Errors::Handler
+    
     VALID_INTENTIONS = { '1' => 'deposit_inquiry', '2' => 'request_paper_rolls',
                          '3' => 'economic_indicators_inquiry' }.freeze
 
@@ -17,6 +18,7 @@ module Intentions
       process_request!
       get_messages
     rescue StandardError => e
+      handle_error
       Rails.logger.error(e.message)
     end
 

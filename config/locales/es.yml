@@ -44,6 +44,8 @@ es:
     deposit_inquiry: Consulta de Depósito.
     request_paper_rolls: Realizar solicitud de rollos de papel.
     economic_indicators_inquiry: Consulta de indicadores económicos.
+  errors:
+    critical_error: Ha ocurrido un error contacte con su administrador.  
   intention:
     deposit_inquiry:
       instructions: 'Por favor, ingrese su RUT y la fecha de depósito, separados por punto y coma (ejemplo: 00.000.000-K; 16/07/2023). Escriba "cancelar" para volver al inicio.'

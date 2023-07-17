@@ -44,6 +44,8 @@ en:
     deposit_inquiry: Deposit Inquiry.
     request_paper_rolls: Request Paper Rolls.
     economic_indicators_inquiry: Economic Indicators Inquiry.
+  errors:
+    critical_error: An error has occurred. Please contact your administrator.
   intention:
     deposit_inquiry:
       instructions: 'Please enter your ID number (RUT) and the deposit date, separated by a semicolon (example: 00.000.000-K; 16/07/2023). Type "cancel" to go back to the beginning.'
