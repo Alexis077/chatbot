@@ -43,6 +43,7 @@ en:
         date_must_exist: Date must exist.
         date_invalid_format: Invalid date, the date must have the format dd/mm/yyyy.
         not_found: Solicitud no encontrada. Por favor, verifique la información ingresada.
+        rut_must_exist: The RUT must exist.
     request_paper_rolls:
       success_message: Roll request generated successfully.
       insufficient_balance: Insufficient balance.

@@ -43,6 +43,7 @@ es:
         date_must_exist: La fecha debe existir
         date_invalid_format: Fecha inválida, la fecha debe tener el formato dd/mm/yyyy.
         not_found: Request not found. Please verify the entered information.
+        rut_must_exist: El RUT debe existir.
     request_paper_rolls:
       success_message: Solicitud de rollos generada satisfactoriamente.
       insufficient_balance: Saldo insuficiente.

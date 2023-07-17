@@ -5,7 +5,7 @@ module Intention
     class Create
       include ActiveModel::Model
 
-      attr_reader :rut, :deposit_date, :errors_messages
+      attr_reader :rut, :deposit_date, :customer, :errors_messages
 
       validates :rut, presence: { message: I18n.t('intention.deposit_inquiry.errors.rut_must_exist') }
       validates :deposit_date, presence: { message: I18n.t('intention.deposit_inquiry.errors.date_must_exist') },
@@ -15,9 +15,10 @@ module Intention
         I18n.t('intention.deposit_inquiry.instructions')
       end
 
-      def initialize(params)
+      def initialize(params, chat_session)
         @errors_messages = []
         @params = params
+        @chat_session = chat_session
         sanitize!
       end
 
@@ -45,14 +46,15 @@ module Intention
       def get_purchase_request!
         purchase_request = @customer.purchase_requests.find_by(deposit_date: Date.strptime(@deposit_date, '%d/%m/%Y'))
         if purchase_request.present?
+          @chat_session.update!(status: :finished)
           Result.new(valid: true,
                      message: I18n.t('intention.deposit_inquiry.deposit_amount',
-                                     date: purchase_request.date.strftime('%d/%m/%Y'),
+                                     date: purchase_request.deposit_date.strftime('%d/%m/%Y'),
                                      deposit_amount: purchase_request.total))
         else
           Result.new(valid: false,
                      message: I18n.t('intention.deposit_inquiry.errors.not_found',
-                                     date: purchase_request.date.strftime('%d/%m/%Y'),
+                                     date: purchase_request.deposit_date.strftime('%d/%m/%Y'),
                                      deposit_amount: purchase_request.total))
         end
       end
