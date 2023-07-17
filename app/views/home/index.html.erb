@@ -26,6 +26,41 @@
     </div>
   </div>
 </div>
+<br>
+<br>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-12 col-md-8">
+      <div class="card">
+        <div class="card-header">
+          Customers
+        </div>
+        <div class="card-body table-overflow">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">RUT</th>
+                <th scope="col">balance</th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <% @customers.each do|customer|%>
+                <tr>
+                  <td><%= customer.name %></td>
+                  <td><%= customer.last_name %></td>
+                  <td><%= customer.rut %></td>
+                  <td><%= number_to_currency(customer.account.balance) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
   function scrollMessagesToBottom() {
     var messagesContainer = document.querySelector(".messages");
