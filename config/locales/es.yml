@@ -39,7 +39,7 @@ es:
     La operación ha terminado. Seleccione una opción:
     1.Consulta de Depósito.
     2.Realizar solicitud de rollos de papel.
-    2.Consulta de indicadores económicos.
+    3.Consulta de indicadores económicos.
   hello_message_options: 
     deposit_inquiry: Consulta de Depósito.
     request_paper_rolls: Realizar solicitud de rollos de papel.
@@ -74,6 +74,15 @@ es:
         rut_must_exist: El RUT debe existir.
         address_must_exist: La dirección debe existir.
         invalid_quantity: La cantidad no es válida.
+    economic_indicators_inquiry:
+      instructions: Ha seleccionado la opción de indicadores económicos. ¿Desea continuar? Escriba 'si' para continuar o 'no' para volver al inicio."
+      rate_message: |
+        Valores Financieros:
+        Dólar (USD): %{dollar_value} CLP
+        UTM: %{utm_value} CLP
+        UF: %{uf_value} CLP
+    errors:
+      select_an_option: Seleccione una opción.
     errors:
       not_valid_option: Opción no válida intente nuevamente.
 

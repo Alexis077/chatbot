@@ -74,5 +74,14 @@ en:
         rut_must_exist: The RUT must exist.
         address_must_exist: The address must exist.
         invalid_quantity: The quantity is not valid.
+    economic_indicators_inquiry:
+      instructions: You have selected the option for economic indicators. Do you wish to continue? Type 'yes' to proceed or 'no' to return to the beginning.
+      rate_message: |
+        Financial Values:
+        Dollar (USD): %{dollar_value} CLP
+        UTM: %{utm_value} CLP
+        UF: %{uf_value} CLP
+      errors:
+        select_an_option: Select an option.
     errors:
       not_valid_option: Not valid option retry again.

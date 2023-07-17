@@ -60,6 +60,9 @@ gem "interactor", "~> 3.0"
 #Add ulid
 gem "ulid"
 
+#Intall httparty
+gem "httparty"
+
 group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
   gem 'factory_bot_rails'
