@@ -32,12 +32,14 @@
 en:
   hello_message_for_chat: | 
     Hello! How are you? I am your assistant. What operation would you like to perform today? (Type the number of the operation you wish to perform).
-
     1. Deposit Inquiry.
-    
     2. Request for paper rolls.
-    
     3. Economic indicators inquiry.
+  finished_operation: |
+    The operation has finished. Please select an option:
+      1.Deposit Inquiry.
+      2.Request for paper rolls.
+      3.Economic indicators inquiry.
   hello_message_options: 
     deposit_inquiry: Deposit Inquiry.
     request_paper_rolls: Request Paper Rolls.

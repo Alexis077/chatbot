@@ -17,7 +17,6 @@ module Intentions
       process_request!
       get_messages
     rescue StandardError => e
-      binding.pry
       Rails.logger.error(e.message)
     end
 
@@ -33,7 +32,7 @@ module Intentions
     end
 
     def process_request!
-      if context.chat_session.initialized? || context.chat_session.finished?
+      if context.chat_session.initialized?
         validate_chat_session_for_input_text!
         return set_message!(context.errors.join("\n")) if context.errors.any?
 
@@ -42,6 +41,9 @@ module Intentions
 
         response = ::Intention::Main.new(intention, context.chat_session).instruction_message
         set_message!(response, intention)
+      elsif context.chat_session.finished?
+        context.chat_session.update!(status: :initialized)
+        set_message!(I18n.t('finished_operation'))
       else
         intention = context.chat_session.messages.last.intention
         response = ::Intention::Main.new(intention,

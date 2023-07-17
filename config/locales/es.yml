@@ -35,6 +35,11 @@ es:
       1. Consulta de Depósito.
       2. Realizar solicitud de rollos de papel.
       3. Consulta de indicadores económicos.
+  finished_operation: |
+    La operación ha terminado. Seleccione una opción:
+    1.Consulta de Depósito.
+    2.Realizar solicitud de rollos de papel.
+    2.Consulta de indicadores económicos.
   hello_message_options: 
     deposit_inquiry: Consulta de Depósito.
     request_paper_rolls: Realizar solicitud de rollos de papel.
