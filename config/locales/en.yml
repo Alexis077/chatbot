@@ -51,7 +51,7 @@ en:
       errors:
         date_must_exist: Date must exist.
         date_invalid_format: Invalid date, the date must have the format dd/mm/yyyy.
-        not_found: Solicitud no encontrada. Por favor, verifique la información ingresada.
+        not_found: Request not found. Please verify the entered information.
         rut_must_exist: The RUT must exist.
     request_paper_rolls:
       success_message: Roll request generated successfully.
@@ -65,7 +65,9 @@ en:
         RUT (Chilean National ID); Shipping Address; Quantity of rolls to request
 
         Example:
-        12.345.678-9; Example Street 123, City, Country; 10
+        12.345.678-9; Example Street 123, City, Country; 10.
+
+        Type "cancel" to go back to the beginning.
       errors:
         rut_must_exist: The RUT must exist.
         address_must_exist: The address must exist.

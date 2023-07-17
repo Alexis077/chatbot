@@ -51,7 +51,7 @@ es:
       errors:
         date_must_exist: La fecha debe existir
         date_invalid_format: Fecha inválida, la fecha debe tener el formato dd/mm/yyyy.
-        not_found: Request not found. Please verify the entered information.
+        not_found: Solicitud no encontrada. Por favor, verifique la información ingresada.
         rut_must_exist: El RUT debe existir.
     request_paper_rolls:
       success_message: Solicitud de rollos generada satisfactoriamente.
@@ -65,7 +65,9 @@ es:
         RUT (RUT de Chile); Dirección de despacho; Cantidad de rollos a solicitar
 
         Ejemplo:
-        12.345.678-9; Calle Ejemplo 123, Ciudad, País; 10
+        12.345.678-9; Calle Ejemplo 123, Ciudad, País; 10.
+        
+        Escriba "cancelar" para volver al inicio.
       errors:
         rut_must_exist: El RUT debe existir.
         address_must_exist: La dirección debe existir.
