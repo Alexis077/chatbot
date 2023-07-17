@@ -1,13 +1,6 @@
-<div class="message">
-  <%= I18n.t('hello_message') %>
-  <ol>
-    <li><%= I18n.t('hello_message_options.deposit_inquiry') %></li>
-    <li><%= I18n.t('hello_message_options.request_paper_rolls') %></li>
-    <li><%= I18n.t('hello_message_options.economic_indicators_inquiry') %></li>
-  </ol>
-</div>
+<div class="message"><pre><%= I18n.t('hello_message_for_chat') %></pre></div>
  <hr>
 <% @messages.each do |message|%>
-  <div class="message"><%= message.text %></div>
+  <div class="message"><pre><%= message.text %></pre></div>
   <hr>
 <% end %>

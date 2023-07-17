@@ -30,14 +30,21 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello_message: Hello! How are you? I am your assistant. What operation would you like to perform today? (Write the number of the operation you want to perform).
+  hello_message_for_chat: | 
+    Hello! How are you? I am your assistant. What operation would you like to perform today? (Type the number of the operation you wish to perform).
+
+    1. Deposit Inquiry.
+    
+    2. Request for paper rolls.
+    
+    3. Economic indicators inquiry.
   hello_message_options: 
     deposit_inquiry: Deposit Inquiry.
     request_paper_rolls: Request Paper Rolls.
     economic_indicators_inquiry: Economic Indicators Inquiry.
   intention:
     deposit_inquiry:
-      instructions: 'Enter your ID number (RUT) and deposit date (separated as follows, example: 00.000.000-K; 07/16/2023).'
+      instructions: 'Please enter your ID number (RUT) and the deposit date, separated by a semicolon (example: 00.000.000-K; 16/07/2023). Type "cancel" to go back to the beginning.'
       deposit_amount: 'The deposited amount for the date %{date} will be: $%{deposit_amount}.'
       errors:
         date_must_exist: Date must exist.

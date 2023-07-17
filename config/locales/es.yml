@@ -30,14 +30,18 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 es:
-  hello_message: ¡Hola! ¿Cómo estás? Soy tu asistente. ¿Qué operación deseas realizar hoy? (Escribe el número de la operación que desees realizar).
+  hello_message_for_chat: |
+    ¡Hola! ¿Cómo estás? Soy tu asistente. ¿Qué operación deseas realizar hoy? (Escribe el número de la operación que desees realizar).
+      1. Consulta de Depósito.
+      2. Realizar solicitud de rollos de papel.
+      3. Consulta de indicadores económicos.
   hello_message_options: 
     deposit_inquiry: Consulta de Depósito.
     request_paper_rolls: Realizar solicitud de rollos de papel.
     economic_indicators_inquiry: Consulta de indicadores económicos.
   intention:
     deposit_inquiry:
-      instructions: 'Ingrese su RUT y la fecha de depósito (separados por punto y coma ejemplo: 00.000.000-K; 16/07/2023).'
+      instructions: 'Por favor, ingrese su RUT y la fecha de depósito, separados por punto y coma (ejemplo: 00.000.000-K; 16/07/2023). Escriba "cancelar" para volver al inicio.'
       deposit_amount: 'La cantidad depositada para la fecha %{date} será de: $%{deposit_amount}.'
       errors:
         date_must_exist: La fecha debe existir

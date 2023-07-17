@@ -23,6 +23,8 @@ module Intention
       end
 
       def execute!
+        return Result.new(valid: true, message: I18n.t('hello_message_for_chat')) if cancel_process?
+
         validate
         return Result.new(valid: false, errors: @errors_messages) if @errors_messages.any?
 
@@ -56,6 +58,17 @@ module Intention
                      message: I18n.t('intention.deposit_inquiry.errors.not_found',
                                      date: purchase_request.deposit_date.strftime('%d/%m/%Y'),
                                      deposit_amount: purchase_request.total))
+        end
+      end
+
+      def cancel_process?
+        data = @params.strip.split(';')
+
+        if data[0]&.strip&.downcase.eql?('cancelar') || data[0]&.strip&.downcase.eql?('cancel')
+          @chat_session.update!(status: :initialized)
+          true
+        else
+          false
         end
       end
     end

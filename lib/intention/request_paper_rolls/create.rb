@@ -30,6 +30,8 @@ module Intention
       end
 
       def execute!
+        return Result.new(valid: true, message: I18n.t('hello_message_for_chat')) if cancel_process?
+
         validate
         return Result.new(valid: false, errors: @errors_messages) if @errors_messages.any?
 
@@ -67,6 +69,17 @@ module Intention
                                 deposit_date: Time.zone.now + 1.days)
         @chat_session.update!(status: :finished)
         Result.new(valid: true, message: I18n.t('intention.request_paper_rolls.success_message'))
+      end
+
+      def cancel_process?
+        data = @params.strip.split(';')
+
+        if data[0]&.strip&.downcase.eql?('cancelar') || data[0]&.strip&.downcase.eql?('cancel')
+          @chat_session.update!(status: :initialized)
+          true
+        else
+          false
+        end
       end
     end
   end
