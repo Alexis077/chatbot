@@ -56,7 +56,7 @@ es:
         not_found: Solicitud no encontrada. Por favor, verifique la información ingresada.
         rut_must_exist: El RUT debe existir.
     request_paper_rolls:
-      success_message: Solicitud de rollos generada satisfactoriamente.
+      success_message: Solicitud de rollos generada satisfactoriamente, descarga tu comprobante aqui %{report_url}
       insufficient_balance: Saldo insuficiente.
       instructions: |
         ¡Bienvenido a nuestro servicio de "Realizar Solicitud de Rollos de Papel"!
@@ -85,4 +85,12 @@ es:
       select_an_option: Seleccione una opción.
     errors:
       not_valid_option: Opción no válida intente nuevamente.
-
+  reports:
+      purchase_request_report:
+        title: "Reporte de solicitud de rollos"
+        customer:
+          name: "Nombre del cliente"
+          address: "Dirección del cliente"
+        amount: "Base"
+        quantity: "Cantidad"
+        total: "Total"

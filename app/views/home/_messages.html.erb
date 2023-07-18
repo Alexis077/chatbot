@@ -1,6 +1,6 @@
 <div class="message"><pre><%= I18n.t('hello_message_for_chat') %></pre></div>
  <hr>
 <% @messages.each do |message|%>
-  <div class="message"><pre><%= message.text %></pre></div>
+  <div class="message"><pre><%= message.text.html_safe %></pre></div>
   <hr>
 <% end %>

@@ -2,7 +2,7 @@
 
 class IntentionsController < ApplicationController
   def create
-    result = Intentions::Create.call(intentions_params: intentions_params, session: session)
+    result = Intentions::Create.call(intentions_params: intentions_params, session: session, extras: {request: request})
     @messages = result.messages
     @customers = Customer.all
     respond_to(&:js)

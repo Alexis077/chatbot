@@ -15,7 +15,7 @@ module Intention
         I18n.t('intention.deposit_inquiry.instructions')
       end
 
-      def initialize(params, chat_session)
+      def initialize(params, chat_session, extras = {})
         @errors_messages = []
         @params = params
         @chat_session = chat_session

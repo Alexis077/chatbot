@@ -66,6 +66,8 @@ gem "httparty"
 # Install wicked pdf
 gem 'wicked_pdf'
 
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
   gem 'factory_bot_rails'

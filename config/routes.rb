@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
+  get "reports/:id/:report_type", to: "reports#show", as: :reports
   resource :intentions, only: %i[create]
 end

@@ -56,7 +56,7 @@ en:
         not_found: Request not found. Please verify the entered information.
         rut_must_exist: The RUT must exist.
     request_paper_rolls:
-      success_message: Roll request generated successfully.
+      success_message: Roll request generated successfully. download your report here %{report_url}
       insufficient_balance: Insufficient balance.
       instructions: |
         Welcome to our "Paper Rolls Request" service!
@@ -85,3 +85,12 @@ en:
         select_an_option: Select an option.
     errors:
       not_valid_option: Not valid option retry again.
+  reports:
+      purchase_request_report:
+        title: "Purchase Request Report"
+        customer:
+          name: "Customer Name"
+          address: "Customer Address"
+        amount: "Base"
+        quantity: "Quantity"
+        total: "Total"

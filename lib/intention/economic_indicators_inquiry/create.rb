@@ -20,7 +20,7 @@ module Intention
         I18n.t('intention.economic_indicators_inquiry.instructions')
       end
 
-      def initialize(params, chat_session)
+      def initialize(params, chat_session, extras = {})
         @selected_option = params.strip.downcase
         @errors_messages = []
         @chat_session = chat_session

@@ -1,0 +1,34 @@
+<h1><%= I18n.t('reports.purchase_request_report.title') %></h1>
+<div class="container">
+
+<div class="row">
+  <div class="col-md-6">
+    <label><strong><%= I18n.t('reports.purchase_request_report.customer.name') %></strong>: </label> <%= @data.customer.full_name %> 
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <label><strong><%= I18n.t('reports.purchase_request_report.customer.address') %></strong>: </label> <%= @data.address %>  
+  </div>
+</div>
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th><%= I18n.t('reports.purchase_request_report.amount') %></th>
+        <th><%= I18n.t('reports.purchase_request_report.quantity') %></th>
+        <th><%= I18n.t('reports.purchase_request_report.total') %></th>
+        <th><%= I18n.t('reports.purchase_request_report.title') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= number_to_currency(@data.amount) %></td>
+        <td><%= @data.quantity %></td>
+        <td><%= number_to_currency(@data.total) %></td>
+        <td><%= @data.deposit_date.strftime("%m/%d/%Y") %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

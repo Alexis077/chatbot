@@ -4,7 +4,7 @@ module Intention
   module RequestPaperRolls
     class Create
       include ActiveModel::Model
-
+      include Rails.application.routes.url_helpers
       FIXED_PURCHASE_AMOUNT = 700
 
       attr_reader :errors_messages, :rut, :address, :quantity, :customer, :chat_session
@@ -19,12 +19,13 @@ module Intention
         I18n.t('intention.request_paper_rolls.instructions')
       end
 
-      def initialize(params, chat_session)
+      def initialize(params, chat_session, extras = {})
         @params = params
         @errors_messages = []
         @rut = nil
         @address = nil
         @quantity = nil
+        @extras = extras
         @chat_session = chat_session
         sanitize!
       end
@@ -61,14 +62,17 @@ module Intention
                             errors: [I18n.t('intention.request_paper_rolls.insufficient_balance')])
         end
 
-        PurchaseRequest.create!(customer: @customer,
-                                address: @address,
-                                amount: FIXED_PURCHASE_AMOUNT,
-                                quantity: @quantity,
-                                total: total,
-                                deposit_date: Time.zone.now + 1.days)
+        purchase_request = PurchaseRequest.create!(customer: @customer,
+                                                   address: @address,
+                                                   amount: FIXED_PURCHASE_AMOUNT,
+                                                   quantity: @quantity,
+                                                   total: total,
+                                                   deposit_date: Time.zone.now + 1.days)
         @chat_session.update!(status: :finished)
-        Result.new(valid: true, message: I18n.t('intention.request_paper_rolls.success_message'))
+        url = reports_url(id: purchase_request.id, report_type: 'purchase_request',
+                          host: "#{@extras[:request].protocol}#{@extras[:request].host_with_port}", format: :pdf)
+        Result.new(valid: true, message: I18n.t('intention.request_paper_rolls.success_message',
+                                                report_url: "<a href='#{url}'>Comprobante</a>"))
       end
 
       def cancel_process?
